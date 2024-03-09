@@ -6,16 +6,43 @@ const loadingDetails = async () => {
   const phones = data.data;
   displayItems(phones);
 };
+// const displayItems = (phones) => {
+//   console.log(phones);
+//   const buttonItems = document.getElementById("button-items");
+
+//   phones.forEach((element) => {
+//   const button=  document.createElement("button");
+//   button.className='btn '
+//     button.innerText= element.category
+//     buttonItems.appendChild(button)
+//   });
+// };
+
 const displayItems = (phones) => {
   console.log(phones);
   const buttonItems = document.getElementById("button-items");
+  let currentButton = null;
 
   phones.forEach((element) => {
-  const button=  document.createElement("button");
-  button.className='btn'
-    button.innerText= element.category
-    buttonItems.appendChild(button)
+    const button = document.createElement("button");
+    button.className = "btn";
+    button.innerText = element.category;
+    buttonItems.appendChild(button);
+
+    button.addEventListener("click", () => {
+      // Reset background and text color for the previously clicked button
+      if (currentButton !== null) {
+        currentButton.style.backgroundColor = "";
+        currentButton.style.color = "";
+      }
+
+      // Change background and text color for the clicked button
+      button.style.backgroundColor = "red";
+      button.style.color = "white";
+
+      // Set the current button to the clicked button
+      currentButton = button;
+    });
   });
 };
-
 loadingDetails();
