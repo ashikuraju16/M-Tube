@@ -6,17 +6,7 @@ const loadingDetails = async () => {
   const phones = data.data;
   displayItems(phones);
 };
-// const displayItems = (phones) => {
-//   console.log(phones);
-//   const buttonItems = document.getElementById("button-items");
 
-//   phones.forEach((element) => {
-//   const button=  document.createElement("button");
-//   button.className='btn '
-//     button.innerText= element.category
-//     buttonItems.appendChild(button)
-//   });
-// };
 
 const displayItems = (phones) => {
   console.log(phones);
