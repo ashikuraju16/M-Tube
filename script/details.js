@@ -21,7 +21,7 @@ const loadingDetails = async () => {
 
 const displayItems = (categories) => {
   console.log(categories);
-  
+
   const buttonItems = document.getElementById("button-items");
   let currentButton = null;
 
@@ -50,7 +50,6 @@ const displayItems = (categories) => {
       itemsDetails();
 
       // Check if there are no items available
-	  
     });
   });
 };
@@ -67,6 +66,19 @@ const itemsDetails = async () => {
 const displayCard = (items) => {
   console.log("items", items);
   const itemsContainer = document.getElementById("items-container");
+  if (items.length === 0) {
+    itemsContainer.classList =
+      "text-7xl flex justify-center my-44 font-extrabold";
+    itemsContainer.innerHTML = `
+        <div class="gallery">
+            <img src="image1.jpg" alt="Image 1">
+         
+            <!-- Add more images here as needed -->
+        </div>
+        <p>Oops!! Sorry, There is no content here</p>`;
+    return;
+  }
+
   itemsContainer.innerHTML = "";
 
   items.forEach((item) => {
@@ -101,7 +113,6 @@ const displayCard = (items) => {
  </div>
     `;
     itemsContainer.appendChild(itemsCard);
-
   });
 };
 
