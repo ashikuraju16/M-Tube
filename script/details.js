@@ -21,6 +21,7 @@ const loadingDetails = async () => {
 
 const displayItems = (categories) => {
   console.log(categories);
+  
   const buttonItems = document.getElementById("button-items");
   let currentButton = null;
 
@@ -46,14 +47,13 @@ const displayItems = (categories) => {
       currentButton = button;
       console.log(element, "cb");
       currentCategoryId = element.category_id;
-
-	  
       itemsDetails();
+
+      // Check if there are no items available
+	  
     });
   });
 };
-const categoryButton = () => {};
-
 const itemsDetails = async () => {
   loadingSpinner(true);
   const res = await fetch(
@@ -67,10 +67,11 @@ const itemsDetails = async () => {
 const displayCard = (items) => {
   console.log("items", items);
   const itemsContainer = document.getElementById("items-container");
-  itemsContainer.innerHTML = null;
+  itemsContainer.innerHTML = "";
 
   items.forEach((item) => {
     console.log("individual item", item);
+
     const itemsCard = document.createElement("div");
     itemsCard.classList = `card  bg-base-100 shadow-xl `;
     itemsCard.innerHTML = `
@@ -98,14 +99,11 @@ const displayCard = (items) => {
  <h2 class="text-lg">${item.others.views}</h2>
  </div>
  </div>
-
     `;
     itemsContainer.appendChild(itemsCard);
+
   });
 };
 
-
-
 itemsDetails();
 loadingDetails();
-
