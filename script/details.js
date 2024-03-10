@@ -73,7 +73,7 @@ const displayCard = (items) => {
    )
  }</h2>
  </div>
- <h2>name</h2>
+ <h2 class="text-lg">${item.others.views}</h2>
  </div>
   </div>
     `;
