@@ -1,5 +1,15 @@
 let currentCategoryId = 1000;
 
+// loading bar
+const loadingSpinner = (isLoading) => {
+  const loadingBar = document.getElementById("loading-bar");
+  if (isLoading) {
+    loadingBar.classList.remove("hidden");
+  } else {
+    loadingBar.classList.add("hidden");
+  }
+};
+
 const loadingDetails = async () => {
   const res = await fetch(
     " https://openapi.programming-hero.com/api/videos/categories"
@@ -16,6 +26,7 @@ const displayItems = (categories) => {
 
   categories.forEach((element) => {
     const button = document.createElement("button");
+
     button.classList = "btn text-xl";
     button.innerText = element.category;
     buttonItems.appendChild(button);
@@ -42,17 +53,19 @@ const displayItems = (categories) => {
 const categoryButton = () => {};
 
 const itemsDetails = async () => {
-	const res = await fetch(
-		`https://openapi.programming-hero.com/api/videos/category/${currentCategoryId}`
-		);
-		const data = await res.json();
-		const items = data.data;
-		displayCard(items);
-	};
-	const displayCard = (items) => {
-		console.log("items", items);
-		const itemsContainer = document.getElementById("items-container");
-		itemsContainer.innerHTML=null
+  loadingSpinner(true);
+  const res = await fetch(
+    `https://openapi.programming-hero.com/api/videos/category/${currentCategoryId}`
+  );
+  const data = await res.json();
+  loadingSpinner(false);
+  const items = data.data;
+  displayCard(items);
+};
+const displayCard = (items) => {
+  console.log("items", items);
+  const itemsContainer = document.getElementById("items-container");
+  itemsContainer.innerHTML = null;
 
   items.forEach((item) => {
     console.log("individual item", item);
