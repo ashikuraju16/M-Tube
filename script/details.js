@@ -42,16 +42,17 @@ const displayItems = (categories) => {
 const categoryButton = () => {};
 
 const itemsDetails = async () => {
-  const res = await fetch(
-    `https://openapi.programming-hero.com/api/videos/category/${currentCategoryId}`
-  );
-  const data = await res.json();
-  const items = data.data;
-  displayCard(items);
-};
-const displayCard = (items) => {
-  console.log("items", items);
-  const itemsContainer = document.getElementById("items-container");
+	const res = await fetch(
+		`https://openapi.programming-hero.com/api/videos/category/${currentCategoryId}`
+		);
+		const data = await res.json();
+		const items = data.data;
+		displayCard(items);
+	};
+	const displayCard = (items) => {
+		console.log("items", items);
+		const itemsContainer = document.getElementById("items-container");
+		itemsContainer.innerHTML=null
 
   items.forEach((item) => {
     console.log("individual item", item);
