@@ -46,6 +46,8 @@ const displayItems = (categories) => {
       currentButton = button;
       console.log(element, "cb");
       currentCategoryId = element.category_id;
+
+	  
       itemsDetails();
     });
   });
@@ -95,11 +97,15 @@ const displayCard = (items) => {
  </div>
  <h2 class="text-lg">${item.others.views}</h2>
  </div>
-  </div>
+ </div>
+
     `;
     itemsContainer.appendChild(itemsCard);
   });
 };
 
+
+
 itemsDetails();
 loadingDetails();
+
