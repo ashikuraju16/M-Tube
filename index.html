@@ -14,26 +14,42 @@
   <body>
     <main class="px-12 mt-12">
       <section class="">
-        <div class="navbar bg-base-100">
-          <div class="navbar-start">
-            <div class=>
+        <div class="sm:flex sm:justify-between">
+         
+            <div class="max-sm:mb-6 max-sm:grid max-sm:justify-center">
               <img src="./Group 26.png" alt="" />
             </div>
-          </div>
+ <!-- perfect for desktop -->
+ <div class=" max-sm:hidden sm:flex sm:justify-between">
+  <button
+  class="bg-[#d3d3d3] text-black  px-5 py-3 rounded-lg text-lg font-medium "
+>
+  Sort by view
+</button>
+<a
+href="question-answer.html"
+class="text-2xl bg-[#ff1f3d] text-white font-bold px-4 py-3 rounded-lg "
+>Blog</a
+>
 
-          <div class="navbar-center ">
-            <button
-              class="bg-[#d3d3d3] text-black   px-5 py-3 rounded-lg text-lg font-medium"
-            >
-              Sort by view
-            </button>
-          </div>
-          <div class="navbar-end">
-            <a
-              href="question-answer.html"
-              class="text-2xl bg-[#ff1f3d] text-white font-bold px-4 py-2 rounded-lg"
-              >Blog</a
-            >
+</div>          
+<div class="sm:hidden">
+
+        <!-- perfect for mobile -->
+    <div class="flex max-sm:justify-center max-sm:gap-x-10">
+      <button
+      class="bg-[#d3d3d3] text-black  px-5 py-3 rounded-lg text-lg font-medium "
+    >
+      Sort by view
+    </button>
+    <a
+      href="question-answer.html"
+      class="text-2xl bg-[#ff1f3d] text-white font-bold px-4 py-3 rounded-lg "
+      >Blog</a
+    >
+  </div>
+    
+</div>
           </div>
         </div>
         <div class="border-2 mt-8"></div>
@@ -45,26 +61,8 @@
       <!--                             items-container                             -->
       <!-- ----------------------------------------------------------------------- -->
       <section>
-        <div id="items-container" class="grid grid-cols-4 container mx-auto gap-6 max-sm:grid-cols-1 max-md:grid-cols-2 max-lg:grid-cols-3 ">
-          <!-- <div class="card w-96 bg-base-100 shadow-xl">
-            <figure>
-              <img
-                src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg"
-                alt="Shoes"
-              />
-            </figure>
-            <div class="card-body">
-              <h2 class="card-title">
-                Shoes!
-                <div class="badge badge-secondary">NEW</div>
-              </h2>
-              <p>If a dog chews shoes whose shoes does he choose?</p>
-              <div class="card-actions justify-end">
-                <div class="badge badge-outline">Fashion</div>
-                <div class="badge badge-outline">Products</div>
-              </div>
-            </div>
-          </div> -->
+        <div id="items-container" class="grid grid-cols-4 container mx-auto gap-6 max-sm:grid-cols-1 max-md:grid-cols-2 max-lg:grid-cols-3  ">
+         
         </div>
       </section>
     </main>
