@@ -21,8 +21,6 @@ const loadingDetails = async () => {
 };
 
 const displayItems = (categories) => {
-
-
   const buttonItems = document.getElementById("button-items");
   let currentButton = null;
 
@@ -46,7 +44,7 @@ const displayItems = (categories) => {
 
       // Set the current button to the clicked button
       currentButton = button;
-  
+
       currentCategoryId = element.category_id;
       itemsDetails();
 
@@ -62,8 +60,11 @@ const itemsDetails = async () => {
   const data = await res.json();
   loadingSpinner(false);
   const items = data.data;
+  console.log(isSorted,'\'');
   if (isSorted) {
-    const sortedItems = items.sort((a, b) => parseFloat(b.others.views) - parseFloat(a.others.views));
+    const sortedItems = items.sort(
+      (a, b) => parseFloat(b.others.views) - parseFloat(a.others.views)
+    );
     displayCard(sortedItems);
   } else {
     displayCard(items);
@@ -77,12 +78,12 @@ const sortCards = () => {
     } else {
       isSorted = true;
     }
+    itemsDetails();
   });
 };
-sortCards()
+sortCards();
 
 const displayCard = (items) => {
-
   const itemsContainer = document.getElementById("items-container");
   if (items.length === 0) {
     itemsContainer.classList =
@@ -99,8 +100,6 @@ const displayCard = (items) => {
   itemsContainer.innerHTML = "";
 
   items.forEach((item) => {
-    console.log("individual item", item);
-
     const itemsCard = document.createElement("div");
     itemsCard.classList = `card  bg-base-100`;
     itemsCard.innerHTML = `
