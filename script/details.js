@@ -21,7 +21,7 @@ const loadingDetails = async () => {
 };
 
 const displayItems = (categories) => {
-  console.log(categories);
+
 
   const buttonItems = document.getElementById("button-items");
   let currentButton = null;
@@ -46,7 +46,7 @@ const displayItems = (categories) => {
 
       // Set the current button to the clicked button
       currentButton = button;
-      console.log(element, "cb");
+  
       currentCategoryId = element.category_id;
       itemsDetails();
 
@@ -82,7 +82,7 @@ const sortCards = () => {
 sortCards()
 
 const displayCard = (items) => {
-  console.log("items", items);
+
   const itemsContainer = document.getElementById("items-container");
   if (items.length === 0) {
     itemsContainer.classList =
