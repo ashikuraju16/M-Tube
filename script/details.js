@@ -91,7 +91,7 @@ const displayCard = (items) => {
     itemsContainer.innerHTML = `
 	<div class="">
 	<img class=" mx-auto mb-16" src="./Icon.png" alt="" />
-	<p class="max-sm:text-2xl w-3/4 text-center   mx-auto  max-sm:text-center max-md:text-3xl max-lg:text-4xl max-xl:text-4xl">Oops!! Sorry, There is no content here</p>
+	<p class="max-sm:text-2xl w-3/4 text-center mx-auto  max-sm:text-center max-md:text-3xl max-lg:text-4xl max-xl:text-4xl">Oops!! Sorry, There is no content here</p>
 	</div>
        `;
     return;
