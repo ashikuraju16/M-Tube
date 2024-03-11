@@ -7,8 +7,8 @@
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
   <body>
-    <main class="container mx-auto mt-20">
-      <div >
+    <main class="container mx-auto mt-20 max-sm:mt-2 max-sm:px-4 max-md:px-2 max-lg:px-2">
+      <div class="max-sm:flex max-sm:justify-center">
        <a href="index.html"> <svg class="text-3xl my-10"
         xmlns="http://www.w3.org/2000/svg"
         width="1em"
@@ -21,45 +21,45 @@
         />
       </svg></a>
       </div>
-      <div>
-        <h2 class="text-4xl font-bold text-red-700">
+      <div >
+        <h2 class="text-4xl font-bold text-red-700 max-sm:text-3xl max-sm:">
           1.Discuss the scope of var,let,and const ?
         </h2>
-        <p class="mt-4 text-2xl font-medium">
+        <p class="mt-4 text-2xl font-medium max-sm:text-xl ">
           <span class="text-3xl font-extrabold text-green-900">Ans:</span> Var
           is function-scoped, accessible throughout the function it's declared
           in. let and const are block-scoped, limited to the block they're
-          defined in. let allows <span class="ml-[64px]">reassignment</span>,
+          defined in. let allows reassignment
           while const creates immutable bindings. All three are hoisted to the
           top of their scope.
         </p>
       </div>
       <div>
-        <h2 class="text-4xl font-bold text-red-700 mt-4">
+        <h2 class="text-4xl font-bold text-red-700 mt-4 max-sm:text-3xl">
           2.Tell us the use cases of null and undefined?
         </h2>
-        <p class="mt-4 text-2xl font-medium">
+        <p class="mt-4 text-2xl font-medium max-sm:text-xl">
           <span class="text-3xl font-extrabold text-green-900"> Ans:</span> Null
           is explicitly assigned to indicate the absence of a value. It's used
           to represent intentional absence. undefined typically signifies an
-          unintentional absence, <span class="ml-[64px]">like</span> when a
+          unintentional absence, like when a
           variable is declared but not assigned a value. Both help manage data
           integrity and error handling in JavaScript applications.
         </p>
       </div>
       <div>
-        <h2 class="text-4xl font-bold text-red-700 mt-4">
+        <h2 class="text-4xl font-bold text-red-700 mt-4 max-sm:text-3xl">
           3.What do you mean by REST API?
         </h2>
-        <p class="mt-4 text-2xl font-medium">
+        <p class="mt-4 text-2xl font-medium max-sm:text-xl ">
           <span class="text-3xl font-extrabold text-green-900">Ans:</span> A
           REST API (Representational State Transfer) is a software architectural
           style for designing networked applications. It uses HTTP requests to
           perform CRUD
-          <span class="ml-[64px]">(Create, Read, Update, Delete)</span>
+          (Create, Read, Update, Delete)
           operations on resources, employing standard HTTP methods like GET,
           POST, PUT, DELETE. It emphasizes stateless
-          <span class="ml-[64px]">communication</span> and resource-based
+      communication and resource-based
           interactions between clients and servers.
         </p>
       </div>
