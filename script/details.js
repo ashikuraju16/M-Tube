@@ -1,5 +1,6 @@
 let currentCategoryId = 1000;
-
+let isSorted = false;
+console.log(isSorted);
 // loading bar
 const loadingSpinner = (isLoading) => {
   const loadingBar = document.getElementById("loading-bar");
@@ -20,8 +21,6 @@ const loadingDetails = async () => {
 };
 
 const displayItems = (categories) => {
-  console.log(categories);
-
   const buttonItems = document.getElementById("button-items");
   let currentButton = null;
 
@@ -45,11 +44,8 @@ const displayItems = (categories) => {
 
       // Set the current button to the clicked button
       currentButton = button;
-      console.log(element, "cb");
       currentCategoryId = element.category_id;
       itemsDetails();
-
-      // Check if there are no items available
     });
   });
 };
@@ -61,10 +57,25 @@ const itemsDetails = async () => {
   const data = await res.json();
   loadingSpinner(false);
   const items = data.data;
-  displayCard(items);
+  console.log(items);
+  if (isSorted) {
+  const sortedItems =  items.sort((a, b) => b.others.views - a.others.views);
+    displayCard(sortedItems);
+  } else {
+    displayCard(items);
+  }
 };
+
+const sortCards = (items) => {
+  const sortButton = document.getElementById("sort-button");
+  sortButton.addEventListener("click", (e) => {
+    itemsDetails();
+  });
+};
+
+sortCards();
+
 const displayCard = (items) => {
-  console.log("items", items);
   const itemsContainer = document.getElementById("items-container");
   if (items.length === 0) {
     itemsContainer.classList =
@@ -81,10 +92,8 @@ const displayCard = (items) => {
   itemsContainer.innerHTML = "";
 
   items.forEach((item) => {
-    console.log("individual item", item);
-
     const itemsCard = document.createElement("div");
-    itemsCard.classList = `card  bg-base-100  `;
+    itemsCard.classList = `card  bg-base-100`;
     itemsCard.innerHTML = `
     <figure>
     <img class="h-72 rounded-lg object-cover w-full " src="${
