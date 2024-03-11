@@ -57,9 +57,8 @@ const itemsDetails = async () => {
   const data = await res.json();
   loadingSpinner(false);
   const items = data.data;
-  console.log(items);
   if (isSorted) {
-  const sortedItems =  items.sort((a, b) => b.others.views - a.others.views);
+  const sortedItems=items.sort((a, b) => b.others.views - a.others.views);
     displayCard(sortedItems);
   } else {
     displayCard(items);
