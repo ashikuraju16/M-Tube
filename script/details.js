@@ -1,5 +1,5 @@
 let currentCategoryId = 1000;
-let isSorted = true;
+let isSorted = false;
 
 // loading bar
 const loadingSpinner = (isLoading) => {
@@ -21,6 +21,8 @@ const loadingDetails = async () => {
 };
 
 const displayItems = (categories) => {
+  console.log(categories);
+
   const buttonItems = document.getElementById("button-items");
   let currentButton = null;
 
@@ -44,8 +46,11 @@ const displayItems = (categories) => {
 
       // Set the current button to the clicked button
       currentButton = button;
+      console.log(element, "cb");
       currentCategoryId = element.category_id;
       itemsDetails();
+
+      // Check if there are no items available
     });
   });
 };
@@ -58,25 +63,26 @@ const itemsDetails = async () => {
   loadingSpinner(false);
   const items = data.data;
   if (isSorted) {
-  const sortedItems=items.sort((a, b) =>parseFloat(b.others.views) - parseFloat(a.others.views));
-  console.log(sortedItems);
-
+    const sortedItems = items.sort((a, b) => parseFloat(b.others.views) - parseFloat(a.others.views));
     displayCard(sortedItems);
   } else {
     displayCard(items);
   }
 };
 
-const sortCards = (items) => {
-  const sortButton = document.getElementById("sort-button");
-  sortButton.addEventListener("click", (e) => {
-    itemsDetails();
+const sortCards = () => {
+  document.getElementById("sort-button").addEventListener("click", () => {
+    if (isSorted) {
+      isSorted = false;
+    } else {
+      isSorted = true;
+    }
   });
 };
-
-sortCards();
+sortCards()
 
 const displayCard = (items) => {
+  console.log("items", items);
   const itemsContainer = document.getElementById("items-container");
   if (items.length === 0) {
     itemsContainer.classList =
@@ -93,6 +99,8 @@ const displayCard = (items) => {
   itemsContainer.innerHTML = "";
 
   items.forEach((item) => {
+    console.log("individual item", item);
+
     const itemsCard = document.createElement("div");
     itemsCard.classList = `card  bg-base-100`;
     itemsCard.innerHTML = `
