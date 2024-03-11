@@ -1,6 +1,6 @@
 let currentCategoryId = 1000;
-let isSorted = false;
-console.log(isSorted);
+let isSorted = true;
+
 // loading bar
 const loadingSpinner = (isLoading) => {
   const loadingBar = document.getElementById("loading-bar");
@@ -58,7 +58,9 @@ const itemsDetails = async () => {
   loadingSpinner(false);
   const items = data.data;
   if (isSorted) {
-  const sortedItems=items.sort((a, b) => b.others.views - a.others.views);
+  const sortedItems=items.sort((a, b) =>parseFloat(b.others.views) - parseFloat(a.others.views));
+  console.log(sortedItems);
+
     displayCard(sortedItems);
   } else {
     displayCard(items);
