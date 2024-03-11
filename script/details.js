@@ -71,8 +71,8 @@ const displayCard = (items) => {
       "text-7xl flex justify-center my-44 font-extrabold";
     itemsContainer.innerHTML = `
 	<div class="">
-	<img class="size-3/6  mx-auto mb-16" src="./Icon.png" alt="" />
-	<p class="max-sm:text-2xl max-sm:text-center max-md:text-3xl max-lg:text-4xl max-xl:text-6xl">Oops!! Sorry, There is no content here</p>
+	<img class=" mx-auto mb-16" src="./Icon.png" alt="" />
+	<p class="max-sm:text-2xl w-3/4 text-center   mx-auto  max-sm:text-center max-md:text-3xl max-lg:text-4xl max-xl:text-4xl">Oops!! Sorry, There is no content here</p>
 	</div>
        `;
     return;
