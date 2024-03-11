@@ -60,7 +60,7 @@ const itemsDetails = async () => {
   const data = await res.json();
   loadingSpinner(false);
   const items = data.data;
-  console.log(isSorted,'\'');
+  console.log(isSorted, "'");
   if (isSorted) {
     const sortedItems = items.sort(
       (a, b) => parseFloat(b.others.views) - parseFloat(a.others.views)
@@ -96,6 +96,7 @@ const displayCard = (items) => {
        `;
     return;
   }
+  itemsContainer.classList="grid grid-cols-4 container mx-auto gap-8 max-sm:grid-cols-1 max-md:grid-cols-2 max-lg:grid-cols-3 max-xl:grid-cols-4 "
 
   itemsContainer.innerHTML = "";
 
