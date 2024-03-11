@@ -84,7 +84,7 @@ const displayCard = (items) => {
     console.log("individual item", item);
 
     const itemsCard = document.createElement("div");
-    itemsCard.classList = `card  bg-base-100 shadow-xl `;
+    itemsCard.classList = `card  bg-base-100  `;
     itemsCard.innerHTML = `
     <figure>
     <img class="h-72 rounded-lg object-cover w-full " src="${
